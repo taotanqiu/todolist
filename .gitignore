@@ -1,0 +1,38 @@
+# =========================
+# Node.js
+# =========================
+node_modules/
+
+# =========================
+# Frontend (Vite)
+# =========================
+front/node_modules/
+front/dist/
+
+# =========================
+# Backend
+# =========================
+back/node_modules/
+
+# 如果你之前把前端 build 拷贝到后端 public
+server/public/*
+!server/public/.gitkeep
+
+# =========================
+# Environment variables
+# =========================
+.env
+front/.env*
+back/.env*
+
+# =========================
+# Logs
+# =========================
+*.log
+
+# =========================
+# OS / Editor
+# =========================
+.DS_Store
+Thumbs.db
+.vscode/

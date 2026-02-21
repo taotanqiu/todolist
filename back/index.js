@@ -4,6 +4,7 @@ const mongoose = require("mongoose");
 const cors = require("cors");
 const todoRoutes = require("./routes/todo.routes.js");
 const connectDB = require("./models/mongoose.js");
+const path = require('path');
 
  
  
@@ -14,6 +15,16 @@ const app = express()
 
 
 app.use(express.static(path.join(__dirname, "public")));
+
+
+if (process.env.NODE_ENV === "production") {
+  app.use(express.static(path.join(__dirname, "../front/dist")));
+
+  app.get("*", (req, res) => {
+    res.sendFile(path.join(__dirname, "../front/dist/index.html"));
+  });
+}
+
 
 app.use(cors())
 app.use(express.json())
